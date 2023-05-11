@@ -1,4 +1,4 @@
-import sys; input = sys.stdin.readline;
+import sys; input = sys.stdin.readline
 from itertools import combinations
 if __name__ == '__main__':
 
