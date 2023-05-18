@@ -10,8 +10,10 @@ if __name__ == '__main__':
 
   for _ in range(m):
     for party in parties:
+      # & -> 교집합 연산 (intersection)
       if party & truth_list:
-        truth_list = truth_list.union(party)
+        # | -> 합집합 연산 (union)
+        truth_list = truth_list | party
 
   cnt = 0
   for party in parties:
