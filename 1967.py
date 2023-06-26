@@ -18,7 +18,6 @@ if __name__ == '__main__':
         if cost + new_cost < distance[new_way]:
           distance[new_way] = cost + new_cost
           heapq.heappush(queue, (distance[new_way], new_way))
-          print(queue)
 
     return last_cost, last_way
 
