@@ -2,10 +2,7 @@ import sys; input = sys.stdin.readline
 if __name__ == '__main__':
 
   n = int(input())
-  coordinates = []
-  for _ in range(n):
-    coordinates.append(list(map(int, input().split())))
-
+  coordinates = [list(map(int, input().split())) for _ in range(n)]
   dp = [[0] * n for _ in range(n)]
   dp[0][0] = 1
 
