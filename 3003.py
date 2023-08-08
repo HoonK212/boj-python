@@ -5,4 +5,5 @@ if __name__ == '__main__':
   pieces = list(map(int, input().split()))
 
   for idx, num in enumerate(num_list):
+    # 출력 포맷에 신경 쓰기 (end 사용)
     print(num - pieces[idx], end=' ')
