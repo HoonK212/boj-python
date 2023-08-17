@@ -5,9 +5,6 @@ if __name__ == '__main__':
   nums = list(map(int, input().split()))
   stack = [0]
 
-  # 8
-  # 1 8 6 4 2 3 5 7
-
   idx = 1
   for num in nums:
     if num == idx:
@@ -33,5 +30,4 @@ if __name__ == '__main__':
       print("Sad")
       exit()
 
-  if stack[-1] == 0:
-    print("Nice")
+  print("Nice")
