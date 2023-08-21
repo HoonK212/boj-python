@@ -7,6 +7,12 @@ if __name__ == '__main__':
 
   i = 2
   while len(expression) >= 3:
+
+    print("--- before ---")
+    print("i: ", i)
+    print("expression: ", expression)
+    print("nums: ", nums)
+
     if expression[i].isalpha():
       i = i + 1
     else:
@@ -21,4 +27,11 @@ if __name__ == '__main__':
       expression[i - 2] = chr(len(nums) - 1 + 65)
       i = i - 2
 
+    print("--- after ---")
+    print("i: ", i)
+    print("expression: ", expression)
+    print("nums: ", nums)
+
+  print()
+  print("=== answer ===")
   print("{:.2f}".format(nums[-1]))
