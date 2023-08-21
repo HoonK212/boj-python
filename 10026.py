@@ -8,8 +8,10 @@ if __name__ == '__main__':
       for y in range(n):
         if visited[x][y] is False:
           visited[x][y] = True
+          # 신규 구역 발견
           if graph[x][y] == char:
             answer[char] = answer[char] + 1
+            # 발견한 구역의 경계 확인
             bfs(char, visited, (x, y))
 
   def bfs(char, visited, coordinates):
@@ -33,12 +35,15 @@ if __name__ == '__main__':
   answer1 = {'R': 0, 'G': 0, 'B': 0}
   answer2 = {'R': 0, 'B': 0}
 
+  # 적록색약이 아닌 경우
   for char in answer1.keys():
     solution(char, answer1)
 
+  # 적록색약 적용
   for i in range(n):
     graph[i] = graph[i].replace('G', 'R')
 
+  # 적록색약인 경우
   solution('R', answer2)
   answer2['B'] = answer1['B']
 

@@ -8,6 +8,7 @@ if __name__ == '__main__':
   answer = []
 
   for _ in range(n):
+    # k값과 nums list의 길이를 이용해 idx값을 찾는 것이 핵심 !!!
     idx = (idx + k - 1) % len(nums)
     answer.append(nums.pop(idx))
 

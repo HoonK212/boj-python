@@ -13,6 +13,8 @@ if __name__ == '__main__':
 
   heap = []
   answer = 0
+
+  # 마감일 역순으로 for문을 돌며 heapq를 사용하는 것이 핵심 !!!
   for d in range(max_d, 0, -1):
     for w in assignments[d]:
       heapq.heappush(heap, -w)
