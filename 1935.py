@@ -5,33 +5,21 @@ if __name__ == '__main__':
   expression = list(str(input()).rstrip())
   nums = [float(input()) for _ in range(n)]
 
-  i = 2
-  while len(expression) >= 3:
-
-    print("--- before ---")
-    print("i: ", i)
-    print("expression: ", expression)
-    print("nums: ", nums)
-
-    if expression[i].isalpha():
-      i = i + 1
+  # 선입후출의 개념을 적용하는 것이 핵심 !!!
+  stack = []
+  for char in expression:
+    if 'A' <= char <= 'Z':
+      stack.append(nums[ord(char) - ord('A')])
     else:
-      if expression[i] == '+':
-        nums.append(nums[ord(expression.pop(i - 2)) - 65] + nums[ord(expression.pop(i - 2)) - 65])
-      elif expression[i] == '-':
-        nums.append(nums[ord(expression.pop(i - 2)) - 65] - nums[ord(expression.pop(i - 2)) - 65])
-      elif expression[i] == '*':
-        nums.append(nums[ord(expression.pop(i - 2)) - 65] * nums[ord(expression.pop(i - 2)) - 65])
-      elif expression[i] == '/':
-        nums.append(nums[ord(expression.pop(i - 2)) - 65] / nums[ord(expression.pop(i - 2)) - 65])
-      expression[i - 2] = chr(len(nums) - 1 + 65)
-      i = i - 2
+      b = stack.pop()
+      a = stack.pop()
+      if char == '+':
+        stack.append(a + b)
+      elif char == '-':
+        stack.append(a - b)
+      elif char == '*':
+        stack.append(a * b)
+      elif char == '/':
+        stack.append(a / b)
 
-    print("--- after ---")
-    print("i: ", i)
-    print("expression: ", expression)
-    print("nums: ", nums)
-
-  print()
-  print("=== answer ===")
-  print("{:.2f}".format(nums[-1]))
+  print("{:.2f}".format(stack[0]))
