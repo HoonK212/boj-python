@@ -17,6 +17,6 @@ if __name__ == '__main__':
         # 조합(combination) 사용
         #   조합: 순서를 고려하지 않고 중복 없이 뽑을 때 경우의 수
         for comb in combinations(s, 6):
-            temp = list(map(str, comb))
-            print(" ".join(temp))
+            tmp = list(map(str, comb))
+            print(" ".join(tmp))
         print()

@@ -17,11 +17,11 @@ if __name__ == '__main__':
     elif b == 2:
       return mul(n, a, a)
     else:
-      temp = cal(n, b // 2, a)
+      tmp = cal(n, b // 2, a)
       if b % 2 == 0:
-        return mul(n, temp, temp)
+        return mul(n, tmp, tmp)
       else:
-        return mul(n, mul(n, temp, temp), a)
+        return mul(n, mul(n, tmp, tmp), a)
 
 
   n, b = map(int, input().split())

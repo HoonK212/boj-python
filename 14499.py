@@ -2,38 +2,41 @@ import sys; input = sys.stdin.readline
 if __name__ == '__main__':
 
   def move_right():
-    temp = dice[1]
+    tmp = dice[1]
     dice[1] = dice[0]
     dice[0] = dice[4]
     dice[4] = dice[5]
-    dice[5] = temp
+    dice[5] = tmp
 
   def move_left():
-    temp = dice[4]
+    tmp = dice[4]
     dice[4] = dice[0]
     dice[0] = dice[1]
     dice[1] = dice[5]
-    dice[5] = temp
+    dice[5] = tmp
 
   def move_back():
-    temp = dice[5]
+    tmp = dice[5]
     dice[5] = dice[2]
     dice[2] = dice[0]
     dice[0] = dice[3]
-    dice[3] = temp
+    dice[3] = tmp
 
   def move_front():
-    temp = dice[3]
+    tmp = dice[3]
     dice[3] = dice[0]
     dice[0] = dice[2]
     dice[2] = dice[5]
-    dice[5] = temp
+    dice[5] = tmp
 
   n, m, x, y, k = map(int, input().split())
-  road = [list(map(int, input().split())) for _ in range(n)]
+  graph = [list(map(int, input().split())) for _ in range(n)]
   command = list(map(int, input().split()))
 
+  # [밑면, 좌, 앞, 뒤, 우, 윗면]
   dice = [0, 0, 0, 0, 0, 0]
+
+  # [동, 서, 북, 남]
   dx = [0, 0, -1, 1]
   dy = [1, -1, 0, 0]
 
@@ -50,10 +53,10 @@ if __name__ == '__main__':
       elif i == 4:
         move_front()
 
-      if road[x][y] == 0:
-        road[x][y] = dice[0]
+      if graph[x][y] == 0:
+        graph[x][y] = dice[0]
       else:
-        dice[0] = road[x][y]
-        road[x][y] = 0
+        dice[0] = graph[x][y]
+        graph[x][y] = 0
 
       print(dice[5])

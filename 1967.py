@@ -34,11 +34,11 @@ if __name__ == '__main__':
 
   INF = int(1e9)
 
-  # 1에서 출발해, 가장 cost가 높은 temp_way 도출
-  temp_cost, temp_way = dijkstra(1)
+  # 1에서 출발해, 가장 cost가 높은 tmp_way 도출
+  tmp_cost, tmp_way = dijkstra(1)
 
-  # temp_way에서 출발해, 가장 cost가 높은 result_way 도출
-  result_cost, result_way = dijkstra(temp_way)
+  # tmp_way에서 출발해, 가장 cost가 높은 result_way 도출
+  result_cost, result_way = dijkstra(tmp_way)
 
-  # 주어진 graph 내에서 가장 cost가 높은 temp_way와 result_way를 잇는, result_cost 출력
+  # 주어진 graph 내에서 가장 cost가 높은 tmp_way와 result_way를 잇는, result_cost 출력
   print(result_cost)
