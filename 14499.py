@@ -36,7 +36,7 @@ if __name__ == '__main__':
   # [밑면, 좌, 앞, 뒤, 우, 윗면]
   dice = [0, 0, 0, 0, 0, 0]
 
-  # [동, 서, 북, 남]
+  # [동(우), 서(좌), 북(뒤), 남(앞)]
   dx = [0, 0, -1, 1]
   dy = [1, -1, 0, 0]
 
@@ -44,6 +44,7 @@ if __name__ == '__main__':
     if 0 <= x + dx[i - 1] < n and 0 <= y + dy[i - 1] < m:
       x, y = x + dx[i - 1], y + dy[i - 1]
 
+      # command 실행
       if i == 1:
         move_right()
       elif i == 2:
@@ -54,8 +55,10 @@ if __name__ == '__main__':
         move_front()
 
       if graph[x][y] == 0:
+        # 주사위 바닥면 -> 이동한 칸 복사
         graph[x][y] = dice[0]
       else:
+        # 이동한 칸 -> 주사위 바닥면 복사
         dice[0] = graph[x][y]
         graph[x][y] = 0
 
