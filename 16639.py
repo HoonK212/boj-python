@@ -30,8 +30,8 @@ if __name__ == '__main__':
         tmp.append(answer[i][mid][1] * answer[mid + 1][j][1])
 
       print("tmp: ", tmp)
-      print("max(tmp): ", max(tmp))
       print("min(tmp): ", min(tmp))
+      print("max(tmp): ", max(tmp))
 
     return min(tmp), max(tmp)
 
