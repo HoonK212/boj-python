@@ -1,6 +1,9 @@
 import sys; input = sys.stdin.readline
 if __name__ == '__main__':
 
+  # source/53462915
+  #   print(input().swapcase())
+
   string = str(input()).rstrip()
 
   for char in string:
