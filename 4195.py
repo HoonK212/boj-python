@@ -2,14 +2,16 @@ import sys; input = sys.stdin.readline; sys.setrecursionlimit(10**6)
 # from collections import deque
 if __name__ == '__main__':
 
+  # 두 노드를 연결하는 함수
   def union(a, b):
     a = find(a)
     b = find(b)
 
-    if a != b:
-      parents[b] = a
-      visited[a] += visited[b]
+    if a != b: # 루트 노드가 다르면
+      parents[b] = a # b의 루트를 a의 루트로 변경하고
+      visited[a] += visited[b] # a의 루트 노드가 가진 친구 수에 b의 루트 노드가 가진 친구 수를 더하는 것이 핵심 !!!
 
+  # 루트 노드 검색 함수
   def find(a):
     if parents[a] != a:
       parents[a] = find(parents[a])
@@ -27,9 +29,9 @@ if __name__ == '__main__':
     for _ in range(m):
       a, b = input().split()
 
-      if a not in parents:
-        parents[a] = a
-        visited[a] = 1
+      if a not in parents: # a나 b가 parents 딕셔너리에 없다면
+        parents[a] = a # 각자 자신을 부모로 갖고
+        visited[a] = 1 # 친구 수는 1로 설정
 
       if b not in parents:
         parents[b] = b
