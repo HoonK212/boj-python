@@ -1,4 +1,5 @@
 import sys; input = sys.stdin.readline; sys.setrecursionlimit(10**6)
+from collections import deque
 if __name__ == '__main__':
 
   t = int(input())
