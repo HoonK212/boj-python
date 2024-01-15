@@ -2,17 +2,18 @@ import sys; input = sys.stdin.readline; sys.setrecursionlimit(10**6)
 if __name__ == '__main__':
 
   n = int(input())
-  xy_li = [list(map(int, input().split())) for _ in range(n)]
+  lines = [list(map(int, input().split())) for _ in range(n)]
+  lines.sort()
 
-  sort_xy = sorted(xy_li, key=lambda x: x[0])
-  min = sort_xy[0][0]
-  reverse_xy = sorted(xy_li, key=lambda x: x[1], reverse=True)
-  max = reverse_xy[0][1]
+  start = lines[0][0]
+  end = lines[0][1]
+  answer = 0
 
-  arr = [0] * (max - min)
+  for cur_start, cur_end in lines[1:]:
+    if cur_start > end:
+      answer += end - start
+      start = cur_start
+    end = max(end, cur_end)
+  answer += end - start
 
-  for xy in sort_xy:
-    arr[xy[0] - min] = 1
-    arr[xy[1] - min - 1] = 1
-
-  print(sum(arr))
+  print(answer)
