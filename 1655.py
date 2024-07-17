@@ -4,9 +4,10 @@ if __name__ == '__main__':
 
   n = int(input())
 
-  leftHeap = [] # 왼쪽 힙 (최대 힙으로 사용하기 위해 부호를 반대로 저장) 초기화
-  rightHeap = [] # 오른쪽 힙 (최소 힙)을 초기화
-  answer = []
+  # 두 개의 힙 초기화
+  leftHeap = []  # 왼쪽 힙 (최대 힙으로 사용하기 위해 부호를 반대로 저장하는 것이 핵심 !!!)
+  rightHeap = []  # 오른쪽 힙 (최소 힙)
+  answer = []  # 결과를 저장할 리스트
 
   for _ in range(n):
     num = int(input())
@@ -29,5 +30,6 @@ if __name__ == '__main__':
     # 현재까지의 중간값을 결과 리스트에 추가
     answer.append(leftHeap[0][1])
 
+  # 결과 출력
   for ans in answer:
     print(ans)

@@ -6,18 +6,24 @@ if __name__ == '__main__':
     # 정점(v)과 간선(e)의 수 입력 받기
     v, e = map(int, input().split())
 
-    # 그래프 초기화
+    # 그래프를 표현하기 위한 변수들 초기화
+    # 각 정점에 대해 'in' 노드와 'out' 노드를 추가로 생성하므로 길이는 2 * v + 1
     length = v * 2 + 1
+
+    # flow: 유량을 저장하는 배열
+    # capacity: 용량을 저장하는 배열
+    # cost: 비용을 저장하는 배열
+    # connect: 연결된 정점 정보를 저장하는 배열
     flow = [[0] * length for _ in range(length)]
     capacity = [[0] * length for _ in range(length)]
     cost = [[0] * length for _ in range(length)]
     connect = [[] for _ in range(length)]
 
-    # 각 정점의 'in' 노드와 'out' 노드를 연결
+    # 각 정점에 대해 'in' 노드와 'out' 노드를 연결
     for i in range(1, v + 1):
       connect[i].append(i + v)
       connect[i + v].append(i)
-      capacity[i][i + v] = 1
+      capacity[i][i + v] = 1  # 'in' 노드와 'out' 노드의 용량을 1로 설정
 
     # 간선 정보 입력받기 및 그래프 구성
     for _ in range(e):
