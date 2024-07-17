@@ -69,7 +69,7 @@ if __name__ == '__main__':
     return progress_percentage
 
 
-    # 입력값 받기
-    year_time = input()
-    # 연도 진행 퍼센트 계산 및 출력
-    print(f"{year_progress_bar(year_time):.15f}")
+  # 입력값 받기
+  year_time = input()
+  # 연도 진행 퍼센트 계산 및 출력
+  print(f"{year_progress_bar(year_time):.15f}")
