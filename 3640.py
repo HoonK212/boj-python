@@ -2,6 +2,16 @@ import sys; input = sys.stdin.readline; sys.setrecursionlimit(10**6)
 from collections import deque
 if __name__ == '__main__':
 
+  # 그래프 초기화: 각 정점에 대해 들어오는 경로와 나가는 경로를 분리하여 처리하기 위해, 각 정점을 'in' 노드와 'out' 노드로 분할하여 그래프 구성
+  #
+  # 간선 입력: 각 간선의 시작점, 도착점, 비용을 입력받아 그래프 구성
+  #
+  # SPFA 알고리즘: SPFA를 사용하여 시작점에서 끝점까지의 최단 경로 찾기
+  #
+  # 유량 조정: 찾은 경로를 따라 유량을 조정하고, 총 비용 계산
+  #
+  # 반복 실행: 두 개의 독립적인 경로를 찾기 위해 SPFA 알고리즘 두 번 실행
+
   def solve():
     # 정점(v)과 간선(e)의 수 입력 받기
     v, e = map(int, input().split())
